@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService} from '../auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 
@@ -10,10 +11,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public user: any = {};
+    constructor(private auth: AuthService, private router: Router) { }
 
-    constructor() { }
+      ngOnInit() {
+    }
 
-  ngOnInit() {
-  }
+    login() {
+      this.auth.login(this.user);
+    }
 
 }
