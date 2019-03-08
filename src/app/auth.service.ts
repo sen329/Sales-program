@@ -7,8 +7,8 @@ import {Router} from '@angular/router';
 @Injectable()
 export class AuthService {
 
-  loginUrl = 'http://127.0.0.1:8000/api/login';
-  registerUrl = 'https://127.0.0.1:8000/api/register';
+  loginUrl = 'http://localhost:8000/api/login';
+  registerUrl = 'http://localhost:8000/api/register';
   token = localStorage.token;
   httpOptions;
 
@@ -29,7 +29,7 @@ export class AuthService {
           this.data = res;
           localStorage.setItem('token',this.data.token);
           localStorage.setItem('id', this.data.id);
-          this.router.navigate(['/test']);
+          this.router.navigate(['/sales']);
         });
   }
 
@@ -41,7 +41,7 @@ export class AuthService {
   },
     err=>{
       let error = err.error;
-      alert('error');
+      alert(error);
     }
   );
 }

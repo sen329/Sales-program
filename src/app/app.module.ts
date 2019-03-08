@@ -11,6 +11,7 @@ import { TestComponentComponent } from './test-component/test-component.componen
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { SalesFormComponent } from './sales-form/sales-form.component';
+import { SalesService } from './sales.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SalesFormComponent } from './sales-form/sales-form.component';
     JsonpModule,
   ],
   providers: [
-    AuthService
+    AuthService,
+    SalesService
   ],
   bootstrap: [AppComponent]
 })

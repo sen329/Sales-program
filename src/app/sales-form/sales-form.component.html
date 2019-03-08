@@ -1,3 +1,29 @@
-<p>
-  sales-form works!
-</p>
+<div>
+  <form method="post" (submit)="addSales">
+    <Label>Project Classification: </Label>
+    <select name="ProjectClass" required>
+      <option value="Consumable">Consumable</option>
+      <option value="Non-Consumable">Non-Consumable</option>
+    </select>
+    <br>
+    <label>Sales Name: </label>
+    <input type="text" name="SalesName" [(ngModel)]="add.SalesName" required class="form-control">
+    <br>
+    <label>Customer Name: </label>
+    <input type="text" name="CustomerName" [(ngModel)]="add.CustomerName" required class="form-control">
+    <br>
+    <label>Customer Address: </label>
+    <input type="text" name="CustomerAddress" [(ngModel)]="add.CustomerAddress" required class="form-control">
+    <br>
+    <label>Customer Contact: </label>
+    <input type="number" name= "CustomerContact" [(ngModel)]="add.CustomerContact" required class="form-control">
+    <br>
+    <label>More than three months?></label>
+    <select name="ThreeMonths">
+      <option value=1>Yes</option>
+      <option value=0>No</option>
+    </select>
+    <button type="submit"  class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
