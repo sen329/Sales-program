@@ -1,7 +1,7 @@
-<div>
+<div *ngIf="Non-Consumable || 1 ">
   <form method="post" (submit)="addSales">
     <Label>Project Classification: </Label>
-    <select name="ProjectClass" required>
+    <select name="ProjectClass" required ngModel="all">
       <option value="Consumable">Consumable</option>
       <option value="Non-Consumable">Non-Consumable</option>
     </select>
@@ -19,11 +19,11 @@
     <input type="number" name= "CustomerContact" [(ngModel)]="add.CustomerContact" required class="form-control">
     <br>
     <label>More than three months?></label>
-    <select name="ThreeMonths">
+    <select name="ThreeMonths" ngModel="all">
       <option value=1>Yes</option>
       <option value=0>No</option>
     </select>
-    <button type="submit"  class="btn btn-primary">Submit</button>
+    <button type="submit"  class="btn btn-primary" ng-disabled="all">Submit</button>
 
   </form>
 </div>
