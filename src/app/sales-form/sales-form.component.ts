@@ -19,7 +19,10 @@ export class SalesFormComponent implements OnInit {
   }
   addSales(): void {
     this.salesService.addSales(this.add)
-    .subscribe(res => {alert("Successfully added")}
+    .subscribe(res => { 
+      console.log(this.add);
+      alert("Successfully added");
+      window.location.reload();}
     ,err=> console.log(err.error)
     );
   }

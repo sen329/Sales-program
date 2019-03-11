@@ -22,7 +22,7 @@ export class SalesService {
     private auth: AuthService
   ) { }
 
-    addSales(sales: Sales){
+    addSales(sales: Sales): Observable<Sales>{
         return this.http.post<Sales>(this.salesurl, sales, this.auth.getHeader());
     }
 }

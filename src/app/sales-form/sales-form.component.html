@@ -1,12 +1,10 @@
-<div *ngIf="Non-Consumable || 1 ">
-  <form method="post" (submit)="addSales">
-    <Label>Project Classification: </Label>
-    <select name="ProjectClass" required ngModel="all">
-      <option value="Consumable">Consumable</option>
-      <option value="Non-Consumable">Non-Consumable</option>
-    </select>
+<div>
+  <form method="post" (submit)="addSales()">
+    <Label>Project Classification: </Label><br>
+    <input type="radio" name="ProjectClass" [(ngModel)]="add.ProjectClass" value="Non-Consumable" required class="form-control"> Non-Consumable<br>
+    <input type="radio" name="ProjectClass" [(ngModel)]="add.ProjectClass" value="Consumable" required class="form-control"> Consumable
     <br>
-    <label>Sales Name: </label>
+    <label>Sales Name: </label> 
     <input type="text" name="SalesName" [(ngModel)]="add.SalesName" required class="form-control">
     <br>
     <label>Customer Name: </label>
@@ -18,12 +16,9 @@
     <label>Customer Contact: </label>
     <input type="number" name= "CustomerContact" [(ngModel)]="add.CustomerContact" required class="form-control">
     <br>
-    <label>More than three months?></label>
-    <select name="ThreeMonths" ngModel="all">
-      <option value=1>Yes</option>
-      <option value=0>No</option>
-    </select>
-    <button type="submit"  class="btn btn-primary" ng-disabled="all">Submit</button>
-
+    <label>More than three months?: </label>
+    <input type="radio" name="ThreeMonths" [(ngModel)]="add.ThreeMonths" value=1>Yes<br>
+    <input type="radio" name="ThreeMonths" [(ngModel)]="add.ThreeMonths" value=0>No<br>
+    <button type="submit"  class="btn btn-primary">Submit</button>
   </form>
 </div>
