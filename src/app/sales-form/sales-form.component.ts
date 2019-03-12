@@ -10,8 +10,9 @@ import { AuthService } from '../auth.service';
 })
 export class SalesFormComponent implements OnInit {
   sales: Sales[];
-  add: any = [];
-
+  add: any = {};
+  ProjectClass = ['Non-Consummable', 'Consummable'];
+  ThreeMonths = ['Yes','No'];
   constructor(private salesService: SalesService,
     private authService: AuthService) { }
 
@@ -23,7 +24,7 @@ export class SalesFormComponent implements OnInit {
       console.log(this.add);
       alert("Successfully added");
       window.location.reload();}
-    ,err=> console.log(err.error)
+    ,err=> console.log(err.error) 
     );
   }
 }
