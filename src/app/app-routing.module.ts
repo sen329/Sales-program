@@ -5,15 +5,18 @@ import { LoginComponent } from './login/login.component';
 import { TestComponentComponent } from './test-component/test-component.component';
 import { RegisterComponent } from './register/register.component';
 import { SalesFormComponent } from './sales-form/sales-form.component';
+import { ListofapprovalComponent } from './listofapproval/listofapproval.component';
+import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'sales', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'test', component: TestComponentComponent },
+  //{ path: 'test', component: TestComponentComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'sales', component: SalesFormComponent }
-
+  { path: 'sales', component: SalesFormComponent },
+  { path: 'listofapproval', component: ListofapprovalComponent },
+  { path: 'projectdetail/:id', component: ProjectdetailComponent }
 ];
 
 @NgModule({

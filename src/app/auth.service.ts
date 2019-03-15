@@ -29,7 +29,7 @@ export class AuthService {
           this.data = res;
           localStorage.setItem('token',this.data.token);
           localStorage.setItem('id', this.data.id);
-          this.router.navigate(['/sales']);
+          this.router.navigate(['/listofapproval']);
         });
   }
 

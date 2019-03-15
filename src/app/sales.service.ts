@@ -15,7 +15,7 @@ import { error } from 'util';
 @Injectable()
 export class SalesService {
 
-  private salesurl= 'http://localhost:8000/api/salescreate';
+  private salesurl= 'http://localhost:8000/api/sales';
 
   constructor(
     private http: HttpClient,
@@ -23,6 +23,17 @@ export class SalesService {
   ) { }
 
     addSales(sales: Sales): Observable<Sales>{
-        return this.http.post<Sales>(this.salesurl, sales, this.auth.getHeader());
+        const url = `${this.salesurl}/create`;
+        return this.http.post<Sales>(url, sales);
     }
+
+    getSales(): Observable<Sales[]>{
+      return this.http.get<Sales[]>(this.salesurl,this.auth.getHeader());
+    }
+
+    getSale(id: number): Observable<Sales> {
+      const url = `${this.salesurl}/${id}`;
+      return this.http.get<Sales>(url,this.auth.getHeader());
+    }
+
 }

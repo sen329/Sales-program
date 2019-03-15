@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { SalesFormComponent } from './sales-form/sales-form.component';
 import { SalesService } from './sales.service';
+import { ListofapprovalComponent } from './listofapproval/listofapproval.component';
+import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SalesService } from './sales.service';
     LoginComponent,
     RegisterComponent,
     TestComponentComponent,
-    SalesFormComponent
+    SalesFormComponent,
+    ListofapprovalComponent,
+    ProjectdetailComponent
   ],
   imports: [
     BrowserModule,
