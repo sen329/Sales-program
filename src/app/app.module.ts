@@ -14,6 +14,7 @@ import { SalesFormComponent } from './sales-form/sales-form.component';
 import { SalesService } from './sales.service';
 import { ListofapprovalComponent } from './listofapproval/listofapproval.component';
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProjectdetailComponent } from './projectdetail/projectdetail.component'
     TestComponentComponent,
     SalesFormComponent,
     ListofapprovalComponent,
-    ProjectdetailComponent
+    ProjectdetailComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
