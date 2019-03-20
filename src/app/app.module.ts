@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,12 @@ import { SalesService } from './sales.service';
 import { ListofapprovalComponent } from './listofapproval/listofapproval.component';
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 import { NavComponent } from './nav/nav.component';
+import { AuthGuardService } from './auth-guard.service';
+
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -34,10 +41,20 @@ import { NavComponent } from './nav/nav.component';
     HttpClientModule,
     HttpModule,
     JsonpModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:4200'],
+        blacklistedRoutes: [
+          'localhost:4200/login',
+          'localhost:4200/register']
+      }
+    })
   ],
   providers: [
     AuthService,
-    SalesService
+    SalesService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

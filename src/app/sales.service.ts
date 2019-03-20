@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import 'rxjs/add/operator/map';
+
 import {  Response, Headers, RequestOptions } from '@angular/http';
 import { AuthService } from './auth.service';
 

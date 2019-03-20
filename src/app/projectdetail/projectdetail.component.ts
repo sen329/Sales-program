@@ -33,7 +33,7 @@ export class ProjectdetailComponent implements OnInit {
       );
   }
 
-  goBack(){
+  goBack(): void{
     this.location.back();
   }
 

@@ -1,7 +1,7 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {HttpHeaders, HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Injectable()
@@ -12,7 +12,9 @@ export class AuthService {
   token = localStorage.token;
   httpOptions;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, 
+              private router: Router,
+              public jwtHelper: JwtHelperService) { }
 
   data: any = {};
 
@@ -22,6 +24,13 @@ export class AuthService {
       'Authorization': 'Bearer '+ localStorage.getItem('token')
     })};
   };
+
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    // Check whether the token is expired and return
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
+  }
 
   login(body) {
       this.http.post(this.loginUrl, body, this.getHeader()).subscribe(
