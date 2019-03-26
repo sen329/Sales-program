@@ -20,10 +20,10 @@ export class SalesService {
     private http: HttpClient,
     private auth: AuthService
   ) { }
-
+    
     addSales(sales: Sales): Observable<Sales>{
         const url = `${this.salesurl}/create`;
-        return this.http.post<Sales>(url, sales);
+        return this.http.post<Sales>(url, sales, this.auth.getHeader());
     }
 
     getSales(): Observable<Sales[]>{
@@ -33,6 +33,11 @@ export class SalesService {
     getSale(id: number): Observable<Sales> {
       const url = `${this.salesurl}/${id}`;
       return this.http.get<Sales>(url,this.auth.getHeader());
+    }
+
+    approveSale(sales: Sales, id: number): Observable<Sales> {
+      const url = `${this.salesurl}/${id}`;
+      return this.http.post<Sales>(url, sales, this.auth.getHeader());
     }
 
 }

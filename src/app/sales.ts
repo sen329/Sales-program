@@ -5,5 +5,6 @@ export class Sales {
     CustomerName: string;
     CustomerAddress: string;
     CustomerContact: number;
-    ThreeMonths: boolean;
+    ThreeMonths: string;
+    Accepted: boolean;
 }
