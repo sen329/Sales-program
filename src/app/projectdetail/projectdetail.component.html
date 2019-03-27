@@ -6,6 +6,7 @@
   <p>Customer Address:       {{sales.CustomerAddress}} </p>
   <p>Customer Phone:         {{sales.CustomerContact}} </p>
   <p>Three Months:           {{sales.ThreeMonths}} </p>
+  <p>Requested by:           {{sales.name}}</p>
   <form method="post" (submit)="approveSale()">
     <ul class="list-group">
       <li class="list-group-item"  *ngFor="let acc of AcceptedList">

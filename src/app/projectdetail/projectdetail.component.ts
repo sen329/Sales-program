@@ -46,7 +46,6 @@ export class ProjectdetailComponent implements OnInit {
   },
     err=>{
       let error = err.error;
-      console.log(this.add);
       alert(error);
       console.error;
     });
