@@ -7,8 +7,9 @@
   <p>Customer Phone:         {{proposal.CustomerContact}} </p>
   <p>Product Name:           {{proposal.name}}</p>
   <p>Product Quantity:       {{proposal.ProductQuantity}}</p>
-  <p>Proposed Price:         {{proposal.ProposedPrice}}</p>
+  <p>Proposed Price:         Rp. {{proposal.ProposedPrice | number : '1.2-2'}}</p>
   <p>Three Months:           {{proposal.ThreeMonths}} </p>
+  <p>Margin:                 {{proposal.Margin | number : '1.2-2'}}%</p>
   <p>Requested by:           {{proposal.name}}</p>
 
   <form method="post" (submit)="approveSale()">
