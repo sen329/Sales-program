@@ -17,6 +17,17 @@
     <label>Customer Contact: </label>
     <input type="number" name= "CustomerContact" [(ngModel)]="add.CustomerContact" required class="form-control">
     <br>
+    <label for="ProductName">Product Name: </label>
+    <select class="form-control" id="ProductName" required [(ngModel)]="add.ProductUsedId" name="ThreeMonths">
+      <option *ngFor="let P of product" [value]="P.id">{{P.name}}</option>
+    </select>
+    <br>
+    <label>Product Quantity: </label>
+    <input type="number" name="ProductQuantity" [(ngModel)]="add.ProductQuantity" required class="form-control">
+    <br>
+    <label>Propose Price: </label>
+    <input type="number" name="ProposedPrice" [(ngModel)]="add.ProposedPrice" required class="form-control">
+    <br>
     <label for="ThreeMonths">More than three months?: </label>
     <select class="form-control" id="ThreeMonths" required [(ngModel)]="add.ThreeMonths" name="ThreeMonths">
       <option *ngFor="let TM of ThreeMonths" [value]="TM">{{TM}}</option>

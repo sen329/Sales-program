@@ -17,6 +17,7 @@ import { ListofapprovalComponent } from './listofapproval/listofapproval.compone
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthGuardService } from './auth-guard.service';
+import { SalesFormDetailsComponent } from './sales-form-details/sales-form-details.component';
 
 
 export function tokenGetter() {
@@ -32,7 +33,8 @@ export function tokenGetter() {
     SalesFormComponent,
     ListofapprovalComponent,
     ProjectdetailComponent,
-    NavComponent
+    NavComponent,
+    SalesFormDetailsComponent
   ],
   imports: [
     BrowserModule,

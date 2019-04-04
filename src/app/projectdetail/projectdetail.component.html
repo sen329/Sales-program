@@ -1,12 +1,16 @@
-<div *ngIf="sales">
-  <p>ID:                     {{sales.id}} </p>
-  <p>Project Classification: {{sales.ProjectClass}} </p>
-  <p>Sales Name:             {{sales.SalesName}} </p>
-  <p>Customer Name:          {{sales.CustomerName}} </p>
-  <p>Customer Address:       {{sales.CustomerAddress}} </p>
-  <p>Customer Phone:         {{sales.CustomerContact}} </p>
-  <p>Three Months:           {{sales.ThreeMonths}} </p>
-  <p>Requested by:           {{sales.name}}</p>
+<div *ngIf="proposal">
+  <p>ID:                     {{proposal.id}} </p>
+  <p>Project Classification: {{proposal.ProjectClass}} </p>
+  <p>Sales Name:             {{proposal.SalesName}} </p>
+  <p>Customer Name:          {{proposal.CustomerName}} </p>
+  <p>Customer Address:       {{proposal.CustomerAddress}} </p>
+  <p>Customer Phone:         {{proposal.CustomerContact}} </p>
+  <p>Product Name:           {{proposal.name}}</p>
+  <p>Product Quantity:       {{proposal.ProductQuantity}}</p>
+  <p>Proposed Price:         {{proposal.ProposedPrice}}</p>
+  <p>Three Months:           {{proposal.ThreeMonths}} </p>
+  <p>Requested by:           {{proposal.name}}</p>
+
   <form method="post" (submit)="approveSale()">
     <ul class="list-group">
       <li class="list-group-item"  *ngFor="let acc of AcceptedList">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sales } from '../sales';
 import { SalesService } from '../sales.service';
 import { AuthService } from '../auth.service';
+import { Product } from 'app/product';
 
 @Component({
   selector: 'app-sales-form',
@@ -11,12 +12,14 @@ import { AuthService } from '../auth.service';
 export class SalesFormComponent implements OnInit {
   sales: Sales[];
   add: any = {};
-  ProjectClass = ['Non-Consummable', 'Consummable'];
+  ProjectClass = ['Non-Consumable', 'Consumable'];
   ThreeMonths = ['Yes','No'];
+  product: Product[];
   constructor(private salesService: SalesService,
     private authService: AuthService) { }
 
   ngOnInit() {
+    this.getProduct();
   }
   addSales(): void {
     this.salesService.addSales(this.add)
@@ -26,5 +29,9 @@ export class SalesFormComponent implements OnInit {
       window.location.reload();}
     ,err=> console.log(err.error) 
     );
+  }
+  getProduct(): void{
+    this.salesService.getProduct()
+    .subscribe(product => this.product = product);
   }
 }

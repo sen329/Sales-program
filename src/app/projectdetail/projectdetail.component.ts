@@ -5,6 +5,7 @@ import { Sales } from '../sales';
 import { SalesService } from '../sales.service';
 import { Accepted } from '../accepted';
 import { ACCEPTED } from '../acceptedList';
+import { Proposal } from 'app/proposal';
 
 
 
@@ -17,6 +18,7 @@ export class ProjectdetailComponent implements OnInit {
   add: any = {};
   sales: Sales;
   AcceptedList: Accepted[] = ACCEPTED;
+  proposal: Proposal;
   constructor(
     private route: ActivatedRoute,
     private salesService: SalesService,
@@ -24,14 +26,14 @@ export class ProjectdetailComponent implements OnInit {
   ) { }
   
   ngOnInit() {
-    this.getSale();
+    this.getProposal();
   }
 
-  getSale(){
+  getProposal(){
     const id = +this.route.snapshot.paramMap.get('id');
-    this.salesService.getSale(id)
-      .subscribe(sales => {
-        this.sales = sales;
+    this.salesService.getProposal(id)
+      .subscribe(proposal => {
+        this.proposal = proposal;
       },
       err => console.log(err.error)
       );
