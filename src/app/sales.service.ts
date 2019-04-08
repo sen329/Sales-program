@@ -35,7 +35,7 @@ export class SalesService {
     }
 
     getSale(id: number): Observable<Sales> {
-      const url = `${this.salesurl}/product/${id}`;
+      const url = `${this.salesurl}/detail/${id}`;
       return this.http.get<Sales>(url,this.auth.getHeader());
     }
 

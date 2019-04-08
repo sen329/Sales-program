@@ -12,8 +12,6 @@ import { Product } from 'app/product';
 export class SalesFormComponent implements OnInit {
   sales: Sales[];
   add: any = {};
-  ProjectClass = ['Non-Consumable', 'Consumable'];
-  ThreeMonths = ['Yes','No'];
   product: Product[];
   constructor(private salesService: SalesService,
     private authService: AuthService) { }

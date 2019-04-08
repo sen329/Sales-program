@@ -1,10 +1,5 @@
 <div>
   <form method="post" (submit)="addSales()">
-    <Label for="ProjectClass">Project Classification: </Label>
-    <select class="form-control" id="ProjectClass" required [(ngModel)]="add.ProjectClass" name="ProjectClass">
-      <option *ngFor="let PC of ProjectClass" [value]="PC">{{PC}}</option>
-    </select>
-    <br>
     <label>Sales Name: </label> 
     <input type="text" name="SalesName" [(ngModel)]="add.SalesName" required class="form-control">
     <br>
@@ -28,10 +23,6 @@
     <label>Propose Price: </label>
     <input type="number" name="ProposedPrice" [(ngModel)]="add.ProposedPrice" required class="form-control">
     <br>
-    <label for="ThreeMonths">More than three months?: </label>
-    <select class="form-control" id="ThreeMonths" required [(ngModel)]="add.ThreeMonths" name="ThreeMonths">
-      <option *ngFor="let TM of ThreeMonths" [value]="TM">{{TM}}</option>
-    </select>
     <button type="submit"  class="btn btn-primary">Submit</button>
   </form>
 </div>

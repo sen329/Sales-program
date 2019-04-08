@@ -1,15 +1,14 @@
 export class Proposal {
     id: number;
-    ProjectClass: string;
     SalesName: string;
     CustomerName: string;
     CustomerAddress: string;
     CustomerContact: number;
     ProductUsedId: number;
     ProductName: string;
+    ProductCode:string;
     ProductQuantity: number;
     ProposedPrice: number;
     Margin: number;
-    ThreeMonths: string;
     Accepted: boolean;
 }

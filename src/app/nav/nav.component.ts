@@ -24,7 +24,6 @@ export class NavComponent implements OnInit {
   get name(){
     return localStorage.getItem('name');
   }
-
   logout() {
     localStorage.clear();
     this.router.navigate(['/login']);
