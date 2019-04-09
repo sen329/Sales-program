@@ -4,7 +4,7 @@
 </nav>
 <nav *ngIf="isLoggedIn">
   <h3>Welcome {{name}}</h3>
+  <a routerLink="/sales">Register project</a>
   <a routerLink="/listofapproval">Project Details</a>
-  <a routerLink="/products">Products</a>
   <button (click)="logout()">logout</button>
 </nav>

@@ -1,7 +1,22 @@
-<ul class="sales">
-  <li *ngFor="let sale of sales">
-    <a routerLink="/projectdetail/{{sale.id}}">
-    <span class="badge">Request {{sale.id}}</span> 
-  </a>
-  </li>
-</ul>
+<table salesTable>
+  <thead>
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr salesTableCol *ngFor="let sale of sales">
+      <td><a routerLink="/projectdetail/{{sale.id}}">Request {{sale.id}}</a></td>
+      <td>
+        <ng-container *ngIf="sale.Accepted === 1; then accepted; else pending;"></ng-container>
+        <ng-template #accepted>Accepted</ng-template>
+        <ng-template #pending>
+          <ng-container *ngIf="sale.Accepted === null; then pending2; else denied">
+          </ng-container>
+        </ng-template>
+        <ng-template #denied>Denied</ng-template>
+        <ng-template #pending2>Pending</ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

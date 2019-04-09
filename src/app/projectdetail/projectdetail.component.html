@@ -8,19 +8,15 @@
   <p>Product Code:           {{proposal.ProductCode}}</p>
   <p>Product Quantity:       {{proposal.ProductQuantity}}</p>
   <p>Proposed Price:         Rp. {{proposal.ProposedPrice | number : '1.2-2'}}</p>
-  <p>Margin:                 {{proposal.Margin | number : '1.2-2'}}%</p>
   <p>Requested by:           {{proposal.name}}</p>
-
-  <form method="post" (submit)="approveSale()">
-    <ul class="list-group">
-      <li class="list-group-item"  *ngFor="let acc of AcceptedList">
-        <input type="radio" [(ngModel)]="add.Accepted" name="list_name" value="{{acc.value}}"> 
-        {{acc.name}}
-        
-      </li>
-</ul>
-    <button type="submit"  class="btn btn-primary">Submit</button>
-  </form> 
+  <ng-container *ngIf="proposal.Accepted === 1; then accepted; else pending;"></ng-container>
+  <ng-template #accepted>Status: Accepted</ng-template>
+  <ng-template #pending>
+    <ng-container *ngIf="proposal.Accepted === null; then pending2; else denied">
+    </ng-container>
+  </ng-template>
+  <ng-template #denied>Status: Denied</ng-template>
+  <ng-template #pending2>Status: Pending</ng-template>
   <br>
   <button (click)="goBack()">Go Back</button>
 </div>

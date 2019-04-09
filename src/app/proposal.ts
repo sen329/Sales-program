@@ -10,5 +10,6 @@ export class Proposal {
     ProductQuantity: number;
     ProposedPrice: number;
     Margin: number;
+    Name: string;
     Accepted: boolean;
 }

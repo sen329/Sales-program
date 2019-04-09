@@ -8,5 +8,9 @@ export const ACCEPTED: Accepted[] = [
      {
          name:'Reject',
          value:0
+      },
+      {
+          name:'Pending',
+          value:null
       }
 ];
