@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProductsService } from '../products.service';
-import { Product } from 'app/product';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-productdetails',

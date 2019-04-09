@@ -5,7 +5,7 @@ import { Sales } from '../sales';
 import { SalesService } from '../sales.service';
 import { Accepted } from '../accepted';
 import { ACCEPTED } from '../acceptedList';
-import { Proposal } from 'app/proposal';
+import { Proposal } from '../proposal';
 
 
 

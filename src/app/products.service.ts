@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import {  Response, Headers, RequestOptions } from '@angular/http';
 import { AuthService } from './auth.service';
 
 import { error } from 'util';

@@ -7,8 +7,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable()
 export class AuthService {
 
-  loginUrl = 'http://localhost:8000/api/login';
-  registerUrl = 'http://localhost:8000/api/register';
+  loginUrl = 'http://localhost:8000/api/sales/login';
+  registerUrl = 'http://localhost:8000/api/sales/register';
   token = localStorage.token;
   httpOptions;
 
