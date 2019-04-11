@@ -9,14 +9,16 @@
   <p>Product Quantity:       {{proposal.ProductQuantity}}</p>
   <p>Proposed Price:         Rp. {{proposal.ProposedPrice | number : '1.2-2'}}</p>
   <p>Requested by:           {{proposal.name}}</p>
+  <p>Status: 
   <ng-container *ngIf="proposal.Accepted === 1; then accepted; else pending;"></ng-container>
-  <ng-template #accepted>Status: Accepted</ng-template>
+  <ng-template #accepted>Accepted</ng-template>
   <ng-template #pending>
     <ng-container *ngIf="proposal.Accepted === null; then pending2; else denied">
     </ng-container>
   </ng-template>
-  <ng-template #denied>Status: Denied</ng-template>
-  <ng-template #pending2>Status: Pending</ng-template>
+  <ng-template #denied>Denied</ng-template>
+  <ng-template #pending2>Pending</ng-template>
+  </p>
   <br>
   <button (click)="goBack()">Go Back</button>
 </div>
