@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sales } from '../sales';
 import { SalesService } from '../sales.service'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-listofapproval',
@@ -11,14 +12,15 @@ export class ListofapprovalComponent implements OnInit {
   
   sales: Sales[];
 
-  constructor(private salesService: SalesService) {}
+  constructor(private salesService: SalesService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.getSales()
   }
 
   getSales(): void {
-    this.salesService.getSales()
+    const id = localStorage.getItem('id');
+    this.salesService.getSales(id)
     .subscribe(sales => this.sales = sales);
   }
 

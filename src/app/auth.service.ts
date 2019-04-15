@@ -36,7 +36,6 @@ export class AuthService {
       this.http.post(this.loginUrl, body, this.getHeader()).subscribe(
         res => {
           this.data = res;
-          let name = JSON.parse(atob(this.data.token.split('.')[1])).name;
           localStorage.setItem('token',this.data.token);
           localStorage.setItem('id', this.data.id);
           localStorage.setItem('name', this.data.name);
@@ -58,8 +57,7 @@ export class AuthService {
 }
 
 logout(){
-  localStorage.removeItem('token');
-  localStorage.removeItem('name')
+  localStorage.clear();
   this.router.navigate(['/login']);
 }
 

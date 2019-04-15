@@ -8,7 +8,6 @@
   <p>Product Code:           {{proposal.ProductCode}}</p>
   <p>Product Quantity:       {{proposal.ProductQuantity}}</p>
   <p>Proposed Price:         Rp. {{proposal.ProposedPrice | number : '1.2-2'}}</p>
-  <p>Requested by:           {{proposal.name}}</p>
   <p>Status: 
   <ng-container *ngIf="proposal.Accepted === 1; then accepted; else pending;"></ng-container>
   <ng-template #accepted>Accepted</ng-template>

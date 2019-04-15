@@ -8,7 +8,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { TestComponentComponent } from './test-component/test-component.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { SalesFormComponent } from './sales-form/sales-form.component';
@@ -17,9 +16,6 @@ import { ListofapprovalComponent } from './listofapproval/listofapproval.compone
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthGuardService } from './auth-guard.service';
-import { SalesFormDetailsComponent } from './sales-form-details/sales-form-details.component';
-import { ProductspageComponent } from './productspage/productspage.component';
-import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 
 export function tokenGetter() {
@@ -31,14 +27,10 @@ export function tokenGetter() {
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    TestComponentComponent,
     SalesFormComponent,
     ListofapprovalComponent,
     ProjectdetailComponent,
     NavComponent,
-    SalesFormDetailsComponent,
-    ProductspageComponent,
-    ProductdetailsComponent
   ],
   imports: [
     BrowserModule,

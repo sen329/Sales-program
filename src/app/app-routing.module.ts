@@ -7,8 +7,6 @@ import { SalesFormComponent } from './sales-form/sales-form.component';
 import { ListofapprovalComponent } from './listofapproval/listofapproval.component';
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
-import { ProductspageComponent } from './productspage/productspage.component';
-import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { NavComponent } from './nav/nav.component';
 
 
@@ -21,8 +19,6 @@ const routes: Routes = [
   { path: 'sales', component: SalesFormComponent, canActivate: [AuthGuard] },
   { path: 'listofapproval', component: ListofapprovalComponent, canActivate: [AuthGuard] },
   { path: 'projectdetail/:id', component: ProjectdetailComponent, canActivate: [AuthGuard] },
-  { path: 'products', component: ProductspageComponent, canActivate: [AuthGuard]},
-  { path: 'productdetail/:id', component: ProductdetailsComponent, canActivate: [AuthGuard]},
   { path: 'app-nav', component: NavComponent, canActivate: [AuthGuard]}
 ];
 

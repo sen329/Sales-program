@@ -3,6 +3,7 @@ import { Sales } from '../sales';
 import { SalesService } from '../sales.service';
 import { AuthService } from '../auth.service';
 import { Product } from 'app/product';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sales-form',
@@ -14,7 +15,7 @@ export class SalesFormComponent implements OnInit {
   add: any = {};
   product: Product[];
   constructor(private salesService: SalesService,
-    private authService: AuthService) { }
+    private authService: AuthService, private location: Location) { }
 
   ngOnInit() {
     this.getProduct();
@@ -23,7 +24,7 @@ export class SalesFormComponent implements OnInit {
     this.salesService.addSales(this.add)
     .subscribe(res => { 
       alert("Successfully added");
-      window.location.reload();}
+      this.goBack();}
     ,err=> console.log(err.error) 
     );
   }
@@ -31,4 +32,9 @@ export class SalesFormComponent implements OnInit {
     this.salesService.getProduct()
     .subscribe(product => this.product = product);
   }
+
+  goBack(): void{
+    this.location.back();
+  }
+
 }

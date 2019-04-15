@@ -30,8 +30,9 @@ export class SalesService {
         return this.http.post<Sales>(url, sales, this.auth.getHeader());
     }
 
-    getSales(): Observable<Sales[]>{
-      return this.http.get<Sales[]>(this.salesurl,this.auth.getHeader());
+    getSales(id:string): Observable<Sales[]>{
+      const url = `${this.salesurl}/mysales/${id}`;
+      return this.http.get<Sales[]>(url,this.auth.getHeader());
     }
 
     getSale(id: number): Observable<Sales> {
