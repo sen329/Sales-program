@@ -11,6 +11,8 @@ import { Sales } from './sales';
 import { error } from 'util';
 import { Product } from './product';
 import { Proposal } from './proposal';
+import { ModSales } from './sales';
+import { Order } from './sales';
 
 
 @Injectable()
@@ -25,7 +27,7 @@ export class SalesService {
     private auth: AuthService
   ) { }
     
-    addSales(sales: Sales): Observable<Sales>{
+    addSales(sales: ModSales): Observable<Sales>{
         const url = `${this.salesurl}/create`;
         return this.http.post<Sales>(url, sales, this.auth.getHeader());
     }
@@ -53,4 +55,8 @@ export class SalesService {
       return this.http.get<Proposal>(url,this.auth.getHeader());
     }
 
+    getOrderDetail(sales_id:number): Observable<Order>{
+      const url = `${this.salesurl}/order/${sales_id}`;
+      return this.http.get<Order>(url, this.auth.getHeader());
+    }    
 }

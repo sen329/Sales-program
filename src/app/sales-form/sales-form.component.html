@@ -1,28 +1,46 @@
 <div>
-  <form method="post" (submit)="addSales()">
-    <label>Sales Name: </label> 
-    <input type="text" name="SalesName" [(ngModel)]="add.SalesName" required class="form-control">
-    <br>
-    <label>Customer Name: </label>
-    <input type="text" name="CustomerName" [(ngModel)]="add.CustomerName" required class="form-control">
-    <br>
-    <label>Customer Address: </label>
-    <input type="text" name="CustomerAddress" [(ngModel)]="add.CustomerAddress" required class="form-control">
-    <br>
-    <label>Customer Contact: </label>
-    <input type="number" name= "CustomerContact" [(ngModel)]="add.CustomerContact" required class="form-control">
-    <br>
-    <label for="ProductName">Product Name: </label>
-    <select class="form-control" id="ProductName" required [(ngModel)]="add.ProductUsedId" name="ThreeMonths">
-      <option *ngFor="let P of product" [value]="P.id">{{P.name}}</option>
-    </select>
-    <br>
-    <label>Product Quantity: </label>
-    <input type="number" name="ProductQuantity" [(ngModel)]="add.ProductQuantity" required class="form-control">
-    <br>
-    <label>Propose Price: </label>
-    <input type="number" name="ProposedPrice" [(ngModel)]="add.ProposedPrice" required class="form-control">
-    <br>
-    <button type="submit"  class="btn btn-primary">Submit</button>
-  </form>
+    <form [formGroup]="proposalForm" method="post" (submit)="addSales()">
+      <h2>Sales Information</h2>
+      <label>
+        Sales Name: <input formControlName="SalesName" />
+      </label>
+      <br>
+      <label>
+        Customer Name: <input formControlName="CustomerName" />
+      </label>
+      <br>
+      <label>
+        Customer Address: <input formControlName="CustomerAddress" />
+      </label>
+      <br>
+      <label>
+        Customer Contact: <input formControlName="CustomerContact" type="number"/>
+      </label>
+      <br>
+      <h2>Product Information</h2>
+      <br>
+      <div formArrayName="orders">
+          <div *ngFor="let item of orders.controls; let pointIndex=index" [formGroupName]="pointIndex">
+            <label>
+        Product Name: <select class="form-control" formControlName="product_id"  required >
+            <option *ngFor="let P of product" [value]="P.id">{{P.name}}</option>
+          </select>
+      </label>
+      <br>
+      <label>
+        Proposed Price: <input formControlName="ProposedPrice" type="number" />
+      </label>
+      <br>
+      <label>
+        Quantity: <input formControlName="Quantity" type="number" />
+      </label>
+      <button type="button" (click)="deleteOrder(pointIndex)">Delete Order</button>
+      </div>
+      <br>
+      <button type="button" (click)="addOrder()">Add Order</button>
+     </div> 
+     <br>
+     <br>
+     <button type="submit"  class="btn btn-primary">Submit</button>
+    </form>
 </div>

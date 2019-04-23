@@ -4,11 +4,11 @@ export class Proposal {
     CustomerName: string;
     CustomerAddress: string;
     CustomerContact: number;
-    ProductUsedId: number;
+    product_id: number;
     ProductName: string;
     ProductCode:string;
-    ProductQuantity: number;
     ProposedPrice: number;
+    Quantity: number;
     Margin: number;
     Name: string;
     Accepted: boolean;
