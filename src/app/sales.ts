@@ -4,7 +4,6 @@ export class Sales {
     CustomerName: string;
     CustomerAddress: string;
     CustomerContact: number;
-    Accepted: boolean;
     orders: Order[];
 }
 
@@ -19,6 +18,7 @@ export class Order {
     Quantity: number;
     margin: number;
     totalproposedprice: number;
+    Accepted: boolean;
 }
 
 export class ModSales{
@@ -26,7 +26,6 @@ export class ModSales{
     CustomerName: string;
     CustomerAddress: string;
     CustomerContact: number;
-    Accepted: boolean;
     product_id:number[];
     ProposedPrice:number[];
     Quantity:number[];

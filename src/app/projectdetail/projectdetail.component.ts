@@ -54,6 +54,6 @@ export class ProjectdetailComponent implements OnInit {
     }, err=> console.log(err.error))
   }
 
-  headElements = ['Product', 'Product Code', 'Proposed Price', 'Quantity'];
+  headElements = ['Product', 'Product Code', 'Proposed Price', 'Quantity', 'Status'];
 
 }
