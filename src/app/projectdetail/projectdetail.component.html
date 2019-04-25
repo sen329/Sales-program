@@ -19,7 +19,7 @@
         <td>{{order.ProductCode}}</td>
         <td>Rp. {{order.ProposedPrice | number : '1.2-2'}}</td>
         <td>{{order.Quantity}}</td>
-        <td>{{order.Accepted}}
+        <td>
             <ng-container *ngIf="order.Accepted === 1; then accepted; else pending;"></ng-container>
             <ng-template #accepted>Accepted</ng-template>
             <ng-template #pending>
