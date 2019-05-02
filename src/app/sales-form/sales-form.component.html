@@ -23,7 +23,7 @@
           <div *ngFor="let item of orders.controls; let pointIndex=index" [formGroupName]="pointIndex">
             <label>
         Product Name: <select class="form-control" formControlName="product_id"  required >
-            <option *ngFor="let P of product" [value]="P.id">{{P.name}}</option>
+            <option *ngFor="let P of product" [value]="P.id">{{P.Productname}}</option>
           </select>
       </label>
       <br>
