@@ -9,8 +9,8 @@ import { environment } from '../environments/environment';
 export class AuthService {
   
   baseUrl = environment.baseUrl;
-  loginUrl = `https://api-pricing.axiqoe.com/sales/login`;
-  registerUrl = `https://api-pricing.axiqoe.com/sales/register`;
+  loginUrl = `${this.baseUrl}/sales/login`;
+  registerUrl = `${this.baseUrl}/sales/register`;
   token = localStorage.token;
   httpOptions;
 
