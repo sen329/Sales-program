@@ -12,7 +12,7 @@ import { NavComponent } from './nav/nav.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'listofapproval', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   //{ path: 'test', component: TestComponentComponent },
   { path: 'register', component: RegisterComponent },
