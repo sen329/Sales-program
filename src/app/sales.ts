@@ -19,6 +19,7 @@ export class Order {
     margin: number;
     totalproposedprice: number;
     Accepted: boolean;
+    RecommendedPrice: number;
 }
 
 export class ModSales{
