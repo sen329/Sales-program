@@ -23,7 +23,6 @@ export class Order {
 }
 
 export class ModSales{
-    SalesName: string;
     CustomerName: string;
     CustomerAddress: string;
     CustomerContact: number;

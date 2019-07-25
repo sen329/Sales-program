@@ -26,7 +26,6 @@ export class SalesFormComponent implements OnInit {
 
   ngOnInit() {
     this.proposalForm = this.fb.group({
-      SalesName: [],
       CustomerName: [],
       CustomerAddress: [],
       CustomerContact:[],
@@ -62,7 +61,6 @@ export class SalesFormComponent implements OnInit {
       CustomerAddress: this.proposalForm.value.CustomerAddress,
       CustomerContact: this.proposalForm.value.CustomerContact,
       CustomerName: this.proposalForm.value.CustomerName,
-      SalesName: this.proposalForm.value.SalesName,
       Accepted: null,
       ProposedPrice: [],
       Quantity: [],
