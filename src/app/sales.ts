@@ -24,6 +24,10 @@ export class Order {
 
 export class ModSales{
     CustomerName: string;
+    ContactPerson: string;
+    branch: string;
+    warehouse: string;
+    nolang:string;
     CustomerAddress: string;
     CustomerContact: number;
     product_id:number[];

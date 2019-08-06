@@ -14,14 +14,38 @@
         Customer Contact: <input formControlName="CustomerContact" type="number"/>
       </label>
       <br>
+      <label>
+        PIC: <input formControlName="ContactPerson" />
+      </label>
+      <br>
+      <label>
+        Warehouse: <input formControlName="warehouse" />
+      </label>
+      <br>
+      <label>
+        Nolang: <input formControlName="nolang" />
+      </label>
       <h2>Product Information</h2>
       <br>
       <div formArrayName="orders">
           <div *ngFor="let item of orders.controls; let pointIndex=index" [formGroupName]="pointIndex">
             <label>
-        Product Name: <select class="form-control" formControlName="product_id"  required >
-            <option *ngFor="let P of product" [value]="P.id">{{P.Productname}}</option>
-          </select>
+              <!-- <div class="list">
+                  <app-search [(searchModel)]="searchModel"></app-search>
+                <mat-selection-list  #P formControlName="product_id">
+                  <mat-list-option  *ngFor="let P of product | listFilter: searchModel" [value]="P.id">
+                    <a mat-list-item (click)="onSelect(P.value)" ><span>{{ P?.Productname }}</span></a>
+                  </mat-list-option>
+                </mat-selection-list>
+              </div> -->
+        
+          
+          Product Name: 
+          <!-- <app-search [(searchModel)]="searchModel"></app-search> -->
+          <select class="form-control" formControlName="product_id"  required >
+            <option *ngFor="let P of product" [value]="P.id">{{P.Productname}}</option> 
+          </select> 
+          <!-- add | listFilter: searchModel when possible -->
       </label>
       <br>
       <label>

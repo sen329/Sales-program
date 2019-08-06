@@ -42,7 +42,11 @@ export class AuthService {
           localStorage.setItem('id', this.data.id);
           localStorage.setItem('name', this.data.name);
           this.router.navigate(['/listofapproval']);
-        });
+        },
+          err=>{
+            let error = err.error;
+            alert("Login Failed");
+          });
   }
 
   register(body) {

@@ -8,6 +8,7 @@ import { ListofapprovalComponent } from './listofapproval/listofapproval.compone
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { NavComponent } from './nav/nav.component';
+import { ReportComponent} from './report/report.component';
 
 
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'sales', component: SalesFormComponent, canActivate: [AuthGuard] },
   { path: 'listofapproval', component: ListofapprovalComponent, canActivate: [AuthGuard] },
   { path: 'projectdetail/:id', component: ProjectdetailComponent, canActivate: [AuthGuard] },
-  { path: 'app-nav', component: NavComponent, canActivate: [AuthGuard]}
+  { path: 'app-nav', component: NavComponent, canActivate: [AuthGuard]},
+  { path: 'report', component: ReportComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -17,6 +17,15 @@ import { ListofapprovalComponent } from './listofapproval/listofapproval.compone
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ReportComponent } from './report/report.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';;
+import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { SearchComponent } from './search/search.component';
+import { ListFilterPipe } from './sales-form/list-filter.pipe';
+import { MatListModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+
 
 
 export function tokenGetter() {
@@ -32,6 +41,9 @@ export function tokenGetter() {
     ListofapprovalComponent,
     ProjectdetailComponent,
     NavComponent,
+    ReportComponent,
+    SearchComponent,
+    ListFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +53,12 @@ export function tokenGetter() {
     HttpClientModule,
     HttpModule,
     JsonpModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    NgxMatSelectSearchModule,
+    MatListModule,
+    MatInputModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -49,7 +67,8 @@ export function tokenGetter() {
           'localhost:4200/login',
           'localhost:4200/register']
       }
-    })
+    }),
+    NoopAnimationsModule
   ],
   providers: [
     AuthService,
