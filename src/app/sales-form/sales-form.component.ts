@@ -28,16 +28,6 @@ export class SalesFormComponent implements OnInit {
 
   @Output() public select: EventEmitter<{}> = new EventEmitter();
   
-  // productCtrl: FormControl = new FormControl();
-
-  // productFilterCtrl: FormControl = new FormControl();
-
-  // filteredProducts: ReplaySubject<Product[]> = new ReplaySubject<Product[]>(1);
-
-  // protected _onDestroy = new Subject<void>();
-
-  // @ViewChild('singleSelect') singleSelect: MatSelect;
-  
   constructor(
     private salesService: SalesService,
     private authService: AuthService, 
@@ -52,6 +42,7 @@ export class SalesFormComponent implements OnInit {
     this.proposalForm = this.fb.group({
       CustomerName: [],
       CustomerAddress: [],
+      Postcode: [],
       CustomerContact:[],
       ContactPerson: [],
       warehouse: [],
@@ -65,50 +56,6 @@ export class SalesFormComponent implements OnInit {
     })
     this.getProduct();
 
-  //   this.productCtrl.setValue(this.product[9]);
-  //   this.filteredProducts.next(this.product.slice());
-
-  //   this.productFilterCtrl.valueChanges
-  //   .pipe(takeUntil(this._onDestroy))
-  //   .subscribe(() => {
-  //     this.filterProducts();
-  //   })
-  // }
-
-  // ngAfterViewInit() {
-  //   this.setInitialValue();
-  // }
-
-  // ngOnDestroy() {
-  //   this._onDestroy.next();
-  //   this._onDestroy.complete();
-  // }
-
-  // protected setInitialValue() {
-  //   this.filteredProducts
-  //     .pipe(take(1), takeUntil(this._onDestroy))
-  //     .subscribe(() => {
-  //       this.singleSelect.compareWith = (a: Product, b: Product) => a && b && a.id === b.id;
-  //     });
-  // }
-
-  // protected filterProducts(){
-  //   if(!this.product){
-  //     return;
-  //   }
-
-  //   let search = this.productFilterCtrl.value;
-  //   if(!search){
-  //     this.filteredProducts.next
-  //     (this.product.slice());
-  //     return;
-  //   } else{
-  //     search = search.toLowerCase();
-  //   }
-  //   this.filteredProducts.next(
-  //     this.product.filter(product => 
-  //       product.name.toLowerCase().indexOf(search)>-1)
-  //   );
   }
 
 
@@ -132,6 +79,7 @@ export class SalesFormComponent implements OnInit {
   addSales(): void {
     let transform ={
       CustomerAddress: this.proposalForm.value.CustomerAddress,
+      Postcode: this.proposalForm.value.Postcode,
       CustomerContact: this.proposalForm.value.CustomerContact,
       CustomerName: this.proposalForm.value.CustomerName,
       ContactPerson: this.proposalForm.value.ContactPerson,

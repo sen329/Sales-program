@@ -29,6 +29,7 @@ export class ModSales{
     warehouse: string;
     nolang:string;
     CustomerAddress: string;
+    Postcode: string;
     CustomerContact: number;
     product_id:number[];
     ProposedPrice:number[];
