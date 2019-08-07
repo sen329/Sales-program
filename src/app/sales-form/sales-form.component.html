@@ -41,11 +41,13 @@
         
           
           Product Name: 
-          <!-- <app-search [(searchModel)]="searchModel"></app-search> -->
+          <app-search [(searchModel)]="searchModel"></app-search>
           <select class="form-control" formControlName="product_id"  required >
-            <option *ngFor="let P of product" [value]="P.id">{{P.Productname}}</option> 
-          </select> 
-          <!-- add | listFilter: searchModel when possible -->
+              <option value="" disabled selected>Select your option</option>
+            <option *ngFor="let P of product | listFilter: searchModel" [value]="P.id">{{P.Productname}}</option> 
+          </select>
+          Setelah searching, tolong click pilihan. 
+          <!-- add | listFilter: searchModel in ngFor when possible -->
       </label>
       <br>
       <label>

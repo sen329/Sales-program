@@ -14,6 +14,7 @@ import { Proposal } from './proposal';
 import { ModSales } from './sales';
 import { Order } from './sales';
 import { environment } from '../environments/environment';
+import { ArrWinlose } from './arr-winlose';
 
 
 @Injectable()
@@ -60,5 +61,11 @@ export class SalesService {
     getOrderDetail(sales_id:number): Observable<Order>{
       const url = `${this.salesurl}/order/${sales_id}`;
       return this.http.get<Order>(url, this.auth.getHeader());
-    }    
+    }   
+    
+    setStatus(orders: ArrWinlose): Observable<Sales> {
+      const url = `${this.salesurl}/order/winLose`;
+      return this.http.post<Sales>(url, orders, this.auth.getHeader());
+    }
+    
 }

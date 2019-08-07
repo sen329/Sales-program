@@ -22,6 +22,8 @@ export class SearchComponent implements OnInit {
   updateSearchModel(value) {
     this.searchModel = value;
     this.searchModelChange.emit(this.searchModel);
+    alert("Searched");
+    console.log(this.searchModel);
   }
 
 }

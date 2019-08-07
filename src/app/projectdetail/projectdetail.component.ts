@@ -21,6 +21,7 @@ export class ProjectdetailComponent implements OnInit {
   AcceptedList: Accepted[] = ACCEPTED;
   proposal: Proposal;
   orders: Order;
+  orderss: Order[];
   constructor(
     private route: ActivatedRoute,
     private salesService: SalesService,
@@ -53,6 +54,29 @@ export class ProjectdetailComponent implements OnInit {
       this.orders = order;
     }, err=> console.log(err.error))
   }
+
+  setStatus(){
+    let arr={
+      ids: [],
+      Winlose:[],
+
+    }
+    for(let i=0;i<this.orderss.length;i++){
+      arr.ids.push(this.orders[i].id);
+      arr.Winlose.push(Number(this.orders[i].Accepted));
+    }
+
+    this.salesService.setStatus(arr)
+    .subscribe(res => {
+      alert('Data recieved');
+      this.goBack();
+  },
+    err=>{
+      let error = err.error;
+      alert(error);
+      console.log(err.error, this.orders);
+    });
+  } 
 
   headElements = ['Product', 'Product Code', 'Proposed Price', 'Quantity', 'Status','Recommended Price'];
 
