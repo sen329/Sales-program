@@ -23,7 +23,8 @@ export class ReportComponent implements OnInit {
   }
 
   generateReport(): void{
-    this.reportService.generateReport()
+    const id = localStorage.getItem('id');
+    this.reportService.getReportById(id)
     .subscribe(report => this.reports = report);
   }
 

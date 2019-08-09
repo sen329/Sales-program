@@ -3,9 +3,55 @@
   <a routerLink="/login">Login</a>
 </nav>
 <nav *ngIf="isLoggedIn">
-  <h3>Welcome {{name}}</h3>
-  <a routerLink="/sales">Register project</a>
-  <a routerLink="/listofapproval">Project Details</a>
-  <a routerLink="/report">Report</a>
-  <button (click)="logout()">logout</button>
-</nav>
+    <div class="sidebar-backdrop" onclick="toggleSidebar()" id="sidebar-backdrop">
+
+      </div>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+
+          <div class="sidebar bg-light">
+              <div class="side-logo logo-axiqoe">
+
+              </div>
+              <hr style="margin-bottom: 0;" />
+              <!-- <div class="sidebar-menu">
+                  New Project
+              </div>
+              <div class="sidebar-menu">
+                  Project List
+              </div>
+              <div class="sidebar-menu">
+                  Report
+              </div> -->
+              <ul class="sidebar-menu">
+                  <li><a routerLink="/sales">Register project</a></li>
+                  <li><a routerLink="/listofapproval">Project Details</a></li>
+                  <li><a routerLink="/report">Report</a></li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="content-wrapper" id="content-wrapper">
+          <nav class="navbar navbar-expand navbar-light bg-secondary-dark">
+              <button type="button" id="sidebarCollapse" class="btn btn-light btn-slim btn-toggle"
+                  onclick="toggleSidebar()">
+                  <i class="fa fa-bars"></i>
+              </button>
+
+              <div class="collapse navbar-collapse" style="margin-right: 20px;">
+                  <ul class="navbar-nav ml-auto">
+
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Welcome, {{name}}!
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <button (click)="logout()">logout</button>
+                          </div>
+                      </li>
+
+                  </ul>
+
+              </div>
+          </nav>
+
