@@ -7,6 +7,8 @@ import { Accepted } from '../accepted';
 import { ACCEPTED } from '../acceptedList';
 import { Proposal } from '../proposal';
 import { Order } from '../sales';
+import { Winlose } from 'app/winlose';
+import { WINLOSE } from 'app/winlose-list';
 
 
 
@@ -22,6 +24,7 @@ export class ProjectdetailComponent implements OnInit {
   proposal: Proposal;
   orders: Order;
   orderss: Order[];
+  Winlose: Winlose[] = WINLOSE;
   constructor(
     private route: ActivatedRoute,
     private salesService: SalesService,
@@ -63,7 +66,7 @@ export class ProjectdetailComponent implements OnInit {
     }
     for(let i=0;i<this.orderss.length;i++){
       arr.ids.push(this.orders[i].id);
-      arr.Winlose.push(Number(this.orders[i].Accepted));
+      arr.Winlose.push(Number(this.orders[i].Winlose));
     }
 
     this.salesService.setStatus(arr)
