@@ -58,9 +58,9 @@ export class SalesService {
       return this.http.get<Proposal>(url,this.auth.getHeader());
     }
 
-    getOrderDetail(sales_id:number): Observable<Order>{
+    getOrderDetail(sales_id:number): Observable<Order[]>{
       const url = `${this.salesurl}/order/${sales_id}`;
-      return this.http.get<Order>(url, this.auth.getHeader());
+      return this.http.get<Order[]>(url, this.auth.getHeader());
     }   
     
     setStatus(orders: ArrWinlose): Observable<Sales> {

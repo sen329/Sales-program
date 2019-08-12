@@ -9,6 +9,7 @@ import { Proposal } from '../proposal';
 import { Order } from '../sales';
 import { Winlose } from 'app/winlose';
 import { WINLOSE } from 'app/winlose-list';
+import { ArrWinlose } from 'app/arr-winlose';
 
 
 
@@ -22,9 +23,10 @@ export class ProjectdetailComponent implements OnInit {
   sales: Sales;
   AcceptedList: Accepted[] = ACCEPTED;
   proposal: Proposal;
-  orders: Order;
-  orderss: Order[];
+  orders: Order[];
   Winlose: Winlose[] = WINLOSE;
+  order: Order;
+  arrWinlose: ArrWinlose;
   constructor(
     private route: ActivatedRoute,
     private salesService: SalesService,
@@ -61,12 +63,12 @@ export class ProjectdetailComponent implements OnInit {
   setStatus(){
     let arr={
       ids: [],
-      Winlose:[],
+      Status:[],
 
     }
-    for(let i=0;i<this.orderss.length;i++){
+    for(let i=0;i<this.orders.length;i++){
       arr.ids.push(this.orders[i].id);
-      arr.Winlose.push(Number(this.orders[i].Winlose));
+      arr.Status.push(Number(this.orders[i].Status));
     }
 
     this.salesService.setStatus(arr)
@@ -77,7 +79,7 @@ export class ProjectdetailComponent implements OnInit {
     err=>{
       let error = err.error;
       alert(error);
-      console.log(err.error, this.orders);
+      console.log(err.error, this.orders.length);
     });
   } 
 

@@ -45,8 +45,8 @@
         
           
           Product Name: 
-          <app-search [(searchModel)]="searchModel"></app-search>
-          <select class="form-control" formControlName="product_id"  required >
+          <!-- <app-search [(searchModel)]="searchModel"></app-search> -->
+          <select class="form-control" formControlName="product_id"  required name="list_name_{{pointIndex}}">
               <option value="" disabled selected>Select your option</option>
             <option *ngFor="let P of product | listFilter: searchModel" [value]="P.id">{{P.Productname}}</option> 
           </select>
