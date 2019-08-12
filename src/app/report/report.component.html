@@ -13,12 +13,22 @@
     <td>{{r.CustomerContact}}</td>
     <td>{{r.ProductCode}}</td>
     <td>{{r.ProductName}}</td>
-    <td>Rp. {{r.ProductPrice | number : '1.2-2'}}</td>
-    <td>Rp. {{r.LKPP | number : '1.2-2'}}</td>
     <td>Rp. {{r.ProposedPrice | number : '1.2-2'}}</td>
     <td>{{r.Quantity}}</td>
-    <td>{{r.Accepted}}</td>
+    <td><ng-container *ngIf="r.Accepted === 1; then accepted; else pending;">
+        <ng-container *ngIf="r.Accepted === 0; then denied; else pending;"></ng-container>
+      </ng-container>
+        <ng-template #accepted>Accepted</ng-template>
+        <ng-template #denied>Denied</ng-template>
+        <ng-template #pending>Pending</ng-template>
+      </td>
     <td>Rp. {{r.RecommendedPrice | number : '1.2-2'}}</td>
+    <td><ng-container *ngIf="r.Status === 1; then win; else pending;">
+        <ng-container *ngIf="r.Status === 0; then lose; else pending;"></ng-container>
+      </ng-container>
+      <ng-template #pending>Pending</ng-template>
+      <ng-template #win>Win</ng-template>
+      <ng-template #lose>Lose</ng-template></td>
     <td>{{r.created_at}}</td>
     <td>{{r.updated_at}}</td>
     <!-- <ng-container *ngIf="r.id === 1; then download"></ng-container>

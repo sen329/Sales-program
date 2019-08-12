@@ -24,15 +24,18 @@
         <td>{{order.ProductName}}</td>
         <td>Rp. {{order.ProposedPrice | number : '1.2-2'}}</td>
         <td>{{order.Quantity}}</td>
-        <td><ng-container *ngIf="order.Accepted === 1; then accepted; else reject;">
-          <ng-container *ngIf="order.Accepted === 0; then reject; else pending"></ng-container>
+        <td><ng-container *ngIf="order.Accepted === 1; then accepted; else pending;">
+          <ng-container *ngIf="order.Accepted === 0; then reject; else pending;"></ng-container>
         </ng-container>
           <ng-template #accepted>Accepted</ng-template>
           <ng-template #pending>pending</ng-template>
             <ng-template #reject>Rejected</ng-template>
         <td>{{order.RecommendedPrice}}</td>
-        <td><ng-container *ngIf="order.Status === 1 || order.Status === 0; then hide; else show;"></ng-container>
-          <ng-template #hide>Submitted</ng-template>  
+        <td><ng-container *ngIf="order.Status === 1; then win; else show;">
+          <ng-container *ngIf="order.Status === 0; then lose; else show;"></ng-container>
+        </ng-container>
+        <ng-template #win>Win</ng-template>
+        <ng-template #lose>Lose</ng-template>
           <ng-template #show>
             <ul class="list-group">
             <li class="list-group-item"  *ngFor="let Wl of Winlose">

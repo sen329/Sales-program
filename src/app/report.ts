@@ -18,4 +18,5 @@ export class Report {
     Total: number;
     Accepted: boolean;
     RecommendedPrice: number;
+    Status: boolean;
 }

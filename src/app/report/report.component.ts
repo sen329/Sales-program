@@ -23,8 +23,7 @@ export class ReportComponent implements OnInit {
   }
 
   generateReport(): void{
-    const id = localStorage.getItem('id');
-    this.reportService.getReportById(id)
+    this.reportService.generateReport()
     .subscribe(report => this.reports = report);
   }
 
@@ -39,6 +38,6 @@ export class ReportComponent implements OnInit {
   }
 
   headElements = ['ID', 'SalesName','Branch','CustomerName','CustomerAddress','CustomerContact','ProductCode',
-                  'ProductName','ProductPrice','LKPP','ProposedPrice','Quantity','Accepted','RecommendedPrice',
+                  'ProductName','ProposedPrice','Quantity','Accepted','RecommendedPrice','Status',
                   'Created_at','Updated_at'];
 }
