@@ -31,13 +31,16 @@
           <ng-template #pending>pending</ng-template>
             <ng-template #reject>Rejected</ng-template>
         <td>{{order.RecommendedPrice}}</td>
-        <td>
+        <td><ng-container *ngIf="order.Status === 1 || order.Status === 0; then show; else hide;"></ng-container>
+          <ng-template #hide>Submitted</ng-template>  
+          <ng-template #show>
             <ul class="list-group">
-                <li class="list-group-item"  *ngFor="let Wl of Winlose">
-                  <input type="radio" [(ngModel)]="order.Status" name="list_name_{{i}}" value="{{Wl.value}}"> 
-                      {{Wl.name}}
-                </li>
-              </ul>   
+            <li class="list-group-item"  *ngFor="let Wl of Winlose">
+              <input type="radio" [(ngModel)]="order.Status" name="list_name_{{i}}" value="{{Wl.value}}"> 
+                  {{Wl.name}}
+            </li>
+          </ul>   
+        </ng-template> 
         </td>
       </tr>
     </tbody>
