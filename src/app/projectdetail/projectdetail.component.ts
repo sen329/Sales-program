@@ -83,6 +83,6 @@ export class ProjectdetailComponent implements OnInit {
     });
   } 
 
-  headElements = ['Product', 'Product Code', 'Proposed Price', 'Quantity', 'Status','Recommended Price'];
+  headElements = ['Product Code', 'Product', 'Proposed Price', 'Quantity', 'Status','Recommended Price'];
 
 }

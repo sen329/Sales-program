@@ -20,8 +20,8 @@
     </thead>
     <tbody>
       <tr orderDetailCol *ngFor="let order of orders; let i=index">
-        <td>{{order.ProductName}}</td>
         <td>{{order.ProductCode}}</td>
+        <td>{{order.ProductName}}</td>
         <td>Rp. {{order.ProposedPrice | number : '1.2-2'}}</td>
         <td>{{order.Quantity}}</td>
         <td><ng-container *ngIf="order.Accepted === 1; then accepted; else reject;">
@@ -31,7 +31,7 @@
           <ng-template #pending>pending</ng-template>
             <ng-template #reject>Rejected</ng-template>
         <td>{{order.RecommendedPrice}}</td>
-        <td><ng-container *ngIf="order.Status === 1 || order.Status === 0; then show; else hide;"></ng-container>
+        <td><ng-container *ngIf="order.Status === 1 || order.Status === 0; then hide; else show;"></ng-container>
           <ng-template #hide>Submitted</ng-template>  
           <ng-template #show>
             <ul class="list-group">

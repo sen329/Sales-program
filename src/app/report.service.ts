@@ -29,8 +29,8 @@ export class ReportService {
     return this.http.get<Report[]>(this.reportUrl, this.auth.getHeader());
   }
 
-  getReportById(by_userId:string): Observable<Report[]>{
-    const url = `${this.reportUrl}/${by_userId}`;
+  getReportById(id:string): Observable<Report[]>{
+    const url = `${this.reportUrl}/${id}`;
     return this.http.get<Report[]>(url, this.auth.getHeader());
   }
 
