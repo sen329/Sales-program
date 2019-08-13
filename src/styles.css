@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+@import "./assets/css/theme.css";
+@import "./assets/css/axiqoe.css";
+@import "./assets/css/axiqoe.sm.css";
+@import "./assets/css/axiqoe.md.css";
+@import "./assets/css/axiqoe.lg.css";
+@import "./assets/css/axiqoe.xl.css";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/* <link rel="stylesheet" href="/Sales-program/src/assets/css/theme.css">
+    <link rel="stylesheet" href="/Sales-program/src/assets/css/axiqoe.css">
+    <link rel="stylesheet" href="/Sales-program/src/assets/css/axiqoe.sm.css">
+    <link rel="stylesheet" href="/Sales-program/src/assets/css/axiqoe.md.css">
+    <link rel="stylesheet" href="/Sales-program/src/assets/css/axiqoe.lg.css">
+    <link rel="stylesheet" href="/Sales-program/src/assets/css/axiqoe.xl.css"> */
