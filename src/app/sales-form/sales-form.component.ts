@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter, Output, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output, Input } from '@angular/core';
 import { Sales, ModSales } from '../sales';
 import { SalesService } from '../sales.service';
 import { AuthService } from '../auth.service';
@@ -23,10 +23,10 @@ export class SalesFormComponent implements OnInit {
   currentProduct: any ={};
 
   
-  searchModel: string;
+  @Input() searchModelForm;
+  
 
-
-  @Output() public select: EventEmitter<{}> = new EventEmitter();
+  @Output() searchModelChange: EventEmitter<any> = new EventEmitter();
   
   constructor(
     private salesService: SalesService,
@@ -49,6 +49,7 @@ export class SalesFormComponent implements OnInit {
       nolang: [],
       orders: this.fb.array([
         this.fb.group({
+          searchModelForm:[],
           product_id:[],
           ProposedPrice:[],
           Quantity:[],
@@ -65,6 +66,7 @@ export class SalesFormComponent implements OnInit {
 
   addOrder(){
     this.orders.push(this.fb.group({
+      searchModelForm: [],
       product_id:[],
       ProposedPrice:[],
       Quantity:[],
@@ -104,7 +106,7 @@ export class SalesFormComponent implements OnInit {
       //console.log(transform);
       this.goBack();
     }
-    ,err=> console.log(err.error, transform)
+    ,err=>alert("Failed")
     );
   }
   getProduct(): void{
@@ -116,9 +118,13 @@ export class SalesFormComponent implements OnInit {
     this.location.back();
   }
 
-  public onSelect(product: Product): void {
-    this.currentProduct = product; 
-    this.select.emit(product);
+  updateSearchModel(value) {
+    this.searchModelForm = value;
+    this.searchModelChange.emit(this.searchModelForm);
+  }
+
+  clear(input: HTMLInputElement){
+      input.value='';
   }
 
 }

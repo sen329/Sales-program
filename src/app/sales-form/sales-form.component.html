@@ -35,21 +35,13 @@
       <div formArrayName="orders">
           <div *ngFor="let item of orders.controls; let pointIndex=index" [formGroupName]="pointIndex">
             <label>
-              <!-- <div class="list">
-                  <app-search [(searchModel)]="searchModel"></app-search>
-                <mat-selection-list  #P formControlName="product_id">
-                  <mat-list-option  *ngFor="let P of product | listFilter: searchModel" [value]="P.id">
-                    <a mat-list-item (click)="onSelect(P.value)" ><span>{{ P?.Productname }}</span></a>
-                  </mat-list-option>
-                </mat-selection-list>
-              </div> -->
-        
           
           Product Name: 
-          <!-- <app-search [(searchModel)]="searchModel"></app-search> -->
+          <input id="searchField" type="text" #searchField  placeholder="Search" formControlName="searchModelForm" 
+              (ngModelChange)="updateSearchModel($event)" name="list_name_{{pointIndex}}">
           <select class="form-control" formControlName="product_id"  required name="list_name_{{pointIndex}}">
               <option value="" disabled selected>Select your option</option>
-            <option *ngFor="let P of product | listFilter: searchModel" [value]="P.id">{{P.Productname}}</option> 
+            <option *ngFor="let P of product | listFilter: searchModelForm" [value]="P.id">{{P.Productname}}</option> 
           </select>
           Setelah searching, tolong click pilihan. 
           <!-- add | listFilter: searchModel in ngFor when possible -->
