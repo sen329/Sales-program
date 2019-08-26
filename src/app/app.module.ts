@@ -25,6 +25,7 @@ import { SearchComponent } from './search/search.component';
 import { ListFilterPipe } from './sales-form/list-filter.pipe';
 import { MatListModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -59,6 +60,7 @@ export function tokenGetter() {
     NgxMatSelectSearchModule,
     MatListModule,
     MatInputModule,
+    NgSelectModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

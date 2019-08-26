@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Form } from '@angular/f
 import { MatSelect } from '@angular/material';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sales-form',
@@ -19,6 +20,9 @@ export class SalesFormComponent implements OnInit {
   sales: Sales[];
   add: any = {};
   product: Product[];
+
+  products = [];
+  allProducts = [];
 
   currentProduct: any ={};
 
@@ -39,6 +43,7 @@ export class SalesFormComponent implements OnInit {
 
 
   ngOnInit() {
+    this.loadProducts();
     this.proposalForm = this.fb.group({
       CustomerName: [],
       CustomerAddress: [],
@@ -49,13 +54,12 @@ export class SalesFormComponent implements OnInit {
       nolang: [],
       orders: this.fb.array([
         this.fb.group({
-          searchModelForm:[],
           product_id:[],
           ProposedPrice:[],
           Quantity:[],
       })])
     })
-    this.getProduct();
+    // this.getProduct();
 
   }
 
@@ -66,7 +70,6 @@ export class SalesFormComponent implements OnInit {
 
   addOrder(){
     this.orders.push(this.fb.group({
-      searchModelForm: [],
       product_id:[],
       ProposedPrice:[],
       Quantity:[],
@@ -106,7 +109,7 @@ export class SalesFormComponent implements OnInit {
       //console.log(transform);
       this.goBack();
     }
-    ,err=>alert("Failed")
+    ,err=>console.log("Failed", err.error)
     );
   }
   getProduct(): void{
@@ -125,6 +128,14 @@ export class SalesFormComponent implements OnInit {
 
   clear(input: HTMLInputElement){
       input.value='';
+  }
+
+  private loadProducts(){
+    this.salesService.getProductList().pipe(delay(500))
+    .subscribe(products => {
+      this.allProducts = products;
+      this.products = [...this.allProducts];
+    })
   }
 
 }

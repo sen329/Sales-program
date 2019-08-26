@@ -67,5 +67,9 @@ export class SalesService {
       const url = `${this.salesurl}/order/winLose`;
       return this.http.post<Sales>(url, orders, this.auth.getHeader());
     }
+
+    getProductList(){
+      return this.http.get<any[]>(this.producturl, this.auth.getHeader());
+    }
     
 }
