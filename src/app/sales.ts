@@ -20,6 +20,7 @@ export class Order {
     totalproposedprice: number;
     Accepted: boolean;
     RecommendedPrice: number;
+    stock:string;
     Status:number;
 }
 
